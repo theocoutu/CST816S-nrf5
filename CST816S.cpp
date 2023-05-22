@@ -76,7 +76,8 @@ void IRAM_ATTR CST816S::handleISR(void) {
 			type of interrupt FALLING, RISING..
 */
 void CST816S::begin(int interrupt) {
-  Wire.begin(_sda, _scl);
+  Wire.setPins(_sda, _scl);
+  Wire.begin();
 
   pinMode(_irq, INPUT);
   pinMode(_rst, OUTPUT);
